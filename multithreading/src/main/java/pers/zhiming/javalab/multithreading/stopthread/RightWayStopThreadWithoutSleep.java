@@ -1,5 +1,8 @@
 package pers.zhiming.javalab.multithreading.stopthread;
 
+/**
+ * 在没有Sleep的情况下中断线程
+ */
 public class RightWayStopThreadWithoutSleep implements Runnable {
 
     public static void main(String[] args) throws InterruptedException {

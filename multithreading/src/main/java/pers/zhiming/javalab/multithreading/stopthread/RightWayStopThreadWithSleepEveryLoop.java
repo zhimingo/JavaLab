@@ -1,21 +1,22 @@
 package pers.zhiming.javalab.multithreading.stopthread;
 
 /**
- * 带有Sleep的中断线程的写法
+ * 如果在执行过程中，每次循环都会调用sleep或wait方法
+ * 那么不需要每次循环都检查线程是否被中断
  */
-public class RightWayStopThreadWithSleep {
+public class RightWayStopThreadWithSleepEveryLoop {
 
     public static void main(String[] args) throws InterruptedException {
         Runnable runnable = () -> {
             int num = 0;
             try {
-                while (num <= 300 && !Thread.currentThread().isInterrupted()) {
+                while (num <= 10000) {
                     if (num % 100 == 0) {
                         System.out.println(num + "是100的倍数");
                     }
                     num++;
+                    Thread.sleep(10);
                 }
-                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -23,7 +24,7 @@ public class RightWayStopThreadWithSleep {
 
         Thread thread = new Thread(runnable);
         thread.start();
-        Thread.sleep(500);
+        Thread.sleep(5000);
         thread.interrupt();
     }
 }
