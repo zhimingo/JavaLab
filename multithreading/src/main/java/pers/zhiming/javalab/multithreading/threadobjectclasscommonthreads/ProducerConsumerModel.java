@@ -1,9 +1,7 @@
 package pers.zhiming.javalab.multithreading.threadobjectclasscommonthreads;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 用wait/notify来实现
